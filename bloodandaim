@@ -1,0 +1,78 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local mainF = Instance.new("Frame")
+local name = Instance.new("TextLabel")
+local toggle = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+local stop = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+mainF.Name = "mainF"
+mainF.Parent = ScreenGui
+mainF.BackgroundColor3 = Color3.fromRGB(75, 75, 75)
+mainF.Position = UDim2.new(0.0622664988, 0, 0.0638820603, 0)
+mainF.Size = UDim2.new(0, 168, 0, 308)
+
+name.Name = "name"
+name.Parent = mainF
+name.BackgroundColor3 = Color3.fromRGB(170, 85, 0)
+name.Size = UDim2.new(0, 168, 0, 23)
+name.Font = Enum.Font.PermanentMarker
+name.Text = "Blood and Aimbot"
+name.TextColor3 = Color3.fromRGB(0, 0, 0)
+name.TextSize = 14.000
+
+toggle.Name = "toggle"
+toggle.Parent = mainF
+toggle.Active = false
+toggle.BackgroundColor3 = Color3.fromRGB(107, 107, 107)
+toggle.Position = UDim2.new(0, 0, 0.847402573, 0)
+toggle.Size = UDim2.new(0, 168, 0, 34)
+toggle.Font = Enum.Font.SourceSans
+toggle.Text = "OFF"
+toggle.TextColor3 = Color3.fromRGB(255, 0, 0)
+toggle.TextSize = 24.000
+toggle.MouseButton1Click:connect(function()
+	toggle.Text = "Activated"
+	toggle.TextColor3 = Color3.fromRGB(0, 255, 0)
+	loadstring(game:GetObjects('rbxassetid://340856112')[1].Source)()
+
+	wait()
+
+	_G.FREE_FOR_ALL = false
+
+	_G.BIND = 50 -- LEFT CTRL
+	_G.ESP_BIND = 52 -- LEFT ALT
+end)
+
+TextLabel.Parent = mainF
+TextLabel.BackgroundColor3 = Color3.fromRGB(144, 144, 144)
+TextLabel.Position = UDim2.new(0.113095239, 0, 0.136363626, 0)
+TextLabel.Size = UDim2.new(0, 130, 0, 160)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "thank you for using gmen#2821 script if you want more futures its gonna cost 200 robux"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+stop.Name = "stop"
+stop.Parent = mainF
+stop.BackgroundColor3 = Color3.fromRGB(107, 107, 107)
+stop.Position = UDim2.new(0, 0, 0.724025965, 0)
+stop.Size = UDim2.new(0, 168, 0, 20)
+stop.Font = Enum.Font.SourceSans
+stop.Text = "emergency stop"
+stop.TextColor3 = Color3.fromRGB(0, 0, 0)
+stop.TextSize = 14.000
+stop.MouseButton1Click:connect(function()
+	ScreenGui:Destroy()
+end)
